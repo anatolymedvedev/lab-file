@@ -3,7 +3,7 @@
 int main(int argc, char *argv[])	
 {		 
 	FILE *result = fopen("result.txt", "w");
-  for(int i = 1; i < argc; i++)
+  	for(int i = 1; i < argc; i++)
 	{
 		FILE *task_file = fopen(argv[i], "r");
 		char c = fgetc(task_file);
