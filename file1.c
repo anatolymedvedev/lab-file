@@ -6,12 +6,12 @@ int count_lines(FILE *task_file);
 
 int main(int argc, char *argv[])	
 {		 
-  FILE *result = fopen("result.txt", "w");
+  	FILE *result = fopen("result.txt", "w");
 	if (result == NULL)
-    {
-        perror ("error file opening");
-        return 1;
-    }
+    	{
+        	perror ("error file opening");
+        	return 1;
+    	}
 
 	long *str =  malloc(0 * sizeof(long));
 	if(str == NULL)
@@ -28,15 +28,14 @@ int main(int argc, char *argv[])
 		FILE *task_file = fopen(argv[i], "r");
 
 		if (task_file == NULL)
-        {
-        	perror ("error file opening");
-        	return 1;
-        }
+        	{
+        		perror ("error file opening");
+        		return 1;
+        	}
 
 		char c;									
 		while((c = fgetc(task_file)) != EOF)
 		{	
-			
 			//printf("%c", c);
 			fputc(c, result);
 		}
