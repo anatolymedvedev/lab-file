@@ -8,11 +8,11 @@ int main(int argc, char *argv[])
 {
 	FILE *result = fopen("result.txt", "w+");
     
-    if (result == NULL)
-    {
-        perror ("error file opening");
-        return 1;
-    }
+    	if (result == NULL)
+    	{
+        	perror ("error file opening");
+        	return 1;
+    	}
 
 	int first = 0;
 	
@@ -20,11 +20,11 @@ int main(int argc, char *argv[])
 	{
 		FILE *task_file = fopen(argv[i], "r");
 
-        if (task_file == NULL)
-        {
-        	perror ("error file opening");
-        	return 1;
-        }
+        	if (task_file == NULL)
+        	{
+        		perror ("error file opening");
+        		return 1;
+        	}
 
 		int c = 0;
 		while((fscanf(task_file, "%d", &c)) != EOF)
