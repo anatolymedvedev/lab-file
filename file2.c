@@ -8,11 +8,11 @@ int main(int argc, char *argv[])
 {
 	FILE *result = fopen("result.txt", "w+");
     
-  if (result == NULL)
-  {
-    perror ("error file opening");
-    return 1;
-  }
+    if (result == NULL)
+    {
+        perror ("error file opening");
+        return 1;
+    }
 
 	int first = 0;
 	
@@ -20,11 +20,11 @@ int main(int argc, char *argv[])
 	{
 		FILE *task_file = fopen(argv[i], "r");
 
-    if (task_file == NULL)
-    {
-      perror ("error file opening");
-      return 1;
-    }
+        if (task_file == NULL)
+        {
+        	perror ("error file opening");
+        	return 1;
+        }
 
 		int c = 0;
 		while((fscanf(task_file, "%d", &c)) != EOF)
@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 				for(int j = 0; j < count_lines(result) - i - 2; j++)
 				{
 					long loc = ftell(result);
-          if (loc == -1L)
+                    			if (loc == -1L)
 					{
 						perror("error");
 						return 1;
@@ -53,13 +53,13 @@ int main(int argc, char *argv[])
 					fscanf(result, "%d", &a);
 
 					long pos = ftell(result);
-          if (pos == -1L)
+                    			if (pos == -1L)
 					{
 						perror("error");
 						return 1;
 					}
 					int b = 0;
-					fscanf(result, "%d", &b);		
+					fscanf(result, "%d", &b);
 
 					if(a > b)
 					{
@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
 		
 		fclose(task_file);
 	}
-  
+
 	printf("Отсортированные файлы лежат в файле result \n");
 	fclose(result);
 
