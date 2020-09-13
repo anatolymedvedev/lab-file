@@ -4,7 +4,13 @@
 
 int main(int argc, char *argv[])	
 {
-	FILE *result = fopen("result.txt", "w+");
+    if (argc != 3)
+    {
+        printf("Передайте только 2 отсортированных файла\n");
+        return 1;
+    }
+
+    FILE *result = fopen("result.txt", "w+");
     
     if (result == NULL)
     {
@@ -12,7 +18,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-	FILE *file1 = fopen(argv[1], "r");
+    FILE *file1 = fopen(argv[1], "r");
 
     if (file1 == NULL)
     {
@@ -20,7 +26,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-	FILE *file2 = fopen(argv[2], "r");
+    FILE *file2 = fopen(argv[2], "r");
 
     if (file2 == NULL)
     {
@@ -71,8 +77,15 @@ int main(int argc, char *argv[])
 
     fclose(file1);
     fclose(file2);
-    fclose(result);
-
+    if (fclose(result) == EOF)
+    {
+        printf("Ошибка закрытия файла\n");
+    }
+    else
+    {
+        printf("Файл закрыт успешно\n");
+    }
+    
     printf("Отсортированные файлы лежат в файле result \n");
     return 0;
 }
